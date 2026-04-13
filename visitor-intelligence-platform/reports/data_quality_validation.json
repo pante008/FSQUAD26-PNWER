@@ -1,0 +1,118 @@
+{
+  "timestamp": "2026-02-16T12:52:42.698315",
+  "file": "data/raw/visitors_2026.csv",
+  "total_records": 100000,
+  "total_columns": 22,
+  "checks": {
+    "schema": {
+      "missing_columns": [
+        "stay_nights",
+        "spend_total_usd",
+        "favorite_team",
+        "returning_visitor"
+      ],
+      "extra_columns": [
+        "daily_spending",
+        "days_staying",
+        "primary_activity",
+        "is_returning_visitor",
+        "booking_source",
+        "ticket_type",
+        "total_spending",
+        "group_total_spending",
+        "created_at"
+      ],
+      "status": "\u274c FAIL"
+    },
+    "duplicates": {
+      "total_duplicates": 0,
+      "duplicate_ids": 0,
+      "status": "\u2705 PASS"
+    },
+    "missing_values": {
+      "total_missing_cells": 0,
+      "columns_with_missing": {},
+      "status": "\u2705 PASS"
+    },
+    "data_types": {
+      "type_issues": {
+        "visitor_id": {
+          "expected": "object",
+          "actual": "str"
+        },
+        "first_name": {
+          "expected": "object",
+          "actual": "str"
+        },
+        "last_name": {
+          "expected": "object",
+          "actual": "str"
+        },
+        "email": {
+          "expected": "object",
+          "actual": "str"
+        },
+        "phone": {
+          "expected": "object",
+          "actual": "str"
+        },
+        "gender": {
+          "expected": "object",
+          "actual": "str"
+        },
+        "country": {
+          "expected": "object",
+          "actual": "str"
+        },
+        "origin_region": {
+          "expected": "object",
+          "actual": "str"
+        },
+        "arrival_date": {
+          "expected": "object",
+          "actual": "str"
+        },
+        "departure_date": {
+          "expected": "object",
+          "actual": "str"
+        },
+        "accommodation_type": {
+          "expected": "object",
+          "actual": "str"
+        }
+      },
+      "status": "\u26a0\ufe0f WARNING"
+    },
+    "value_ranges": {
+      "range_issues": {},
+      "status": "\u2705 PASS"
+    },
+    "categorical_values": {
+      "categorical_issues": {
+        "accommodation_type": {
+          "expected": [
+            "Hotel",
+            "Airbnb",
+            "Hostel",
+            "Short-term rental",
+            "Friends/Family"
+          ],
+          "invalid_count": 100000,
+          "invalid_values": [
+            "hotel",
+            "airbnb",
+            "resort",
+            "hostel",
+            "staying_with_friends"
+          ]
+        }
+      },
+      "status": "\u26a0\ufe0f WARNING"
+    },
+    "date_consistency": {
+      "date_issues": {},
+      "status": "\u2705 PASS"
+    }
+  },
+  "overall_status": "\u26a0\ufe0f SOME WARNINGS"
+}

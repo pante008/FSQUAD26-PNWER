@@ -1,0 +1,287 @@
+================================================================================
+🚀 STAGE 2: DATA VALIDATION & QUALITY CHECKS
+================================================================================
+
+📊 Initializing validators...
+📊 Loading data from: data/raw/visitors_2026.csv
+✓ Loaded 100,000 records with 22 columns
+📊 Loading data for profiling: data/raw/visitors_2026.csv
+✓ Loaded 100,000 records
+🔎 Loading data for anomaly detection: data/raw/visitors_2026.csv
+✓ Loaded 100,000 records
+
+--------------------------------------------------------------------------------
+
+================================================================================
+🔍 STARTING DATA QUALITY VALIDATION
+================================================================================
+
+🔍 Checking schema...
+   ❌ Missing columns: ['stay_nights', 'spend_total_usd', 'favorite_team', 'returning_visitor']
+   ⚠️ Extra columns: ['daily_spending', 'days_staying', 'primary_activity', 'is_returning_visitor', 'booking_source', 'ticket_type', 'total_spending', 'group_total_spending', 'created_at']
+   ❌ FAIL
+
+🔍 Checking for duplicates...
+   Total duplicates: 0
+   Duplicate IDs: 0
+   ✅ PASS
+
+🔍 Checking for missing values...
+   No missing values found!
+   ✅ PASS
+
+🔍 Checking data types...
+   ❌ visitor_id: Expected object, got str
+   ❌ first_name: Expected object, got str
+   ❌ last_name: Expected object, got str
+   ❌ email: Expected object, got str
+   ❌ phone: Expected object, got str
+   ✅ age: int64
+   ❌ gender: Expected object, got str
+   ❌ country: Expected object, got str
+   ❌ origin_region: Expected object, got str
+   ✅ group_size: int64
+   ❌ arrival_date: Expected object, got str
+   ❌ departure_date: Expected object, got str
+   ❌ accommodation_type: Expected object, got str
+   ⚠️ WARNING
+
+🔍 Checking value ranges...
+   ✅ Age: All values in range 18-80
+   ✅ Group size: All values in range 1-6
+   ✅ PASS
+
+🔍 Checking categorical values...
+   ✅ gender: All values valid
+   ⚠️ accommodation_type: 100000 invalid values
+   ⚠️ WARNING
+
+🔍 Checking date consistency...
+   ✅ PASS
+
+📄 Report saved: reports/data_quality_validation.json
+
+✅ Cleaned CSV: data/processed/synthetic_visitors_clean.csv
+✅ Validated Parquet: data/processed/synthetic_visitors_validated.parquet
+
+================================================================================
+📊 DATA QUALITY SUMMARY
+================================================================================
+
+Total Records: 100,000
+Total Columns: 22
+
+Overall Status: ⚠️ SOME WARNINGS
+
+Check Results:
+  schema                        : ❌ FAIL
+  duplicates                    : ✅ PASS
+  missing_values                : ✅ PASS
+  data_types                    : ⚠️ WARNING
+  value_ranges                  : ✅ PASS
+  categorical_values            : ⚠️ WARNING
+  date_consistency              : ✅ PASS
+
+================================================================================
+
+--------------------------------------------------------------------------------
+
+📈 Profiling all columns...
+   Profiling visitor_id...
+   Profiling first_name...
+   Profiling last_name...
+   Profiling email...
+   Profiling phone...
+   Profiling age...
+   Profiling gender...
+   Profiling country...
+   Profiling origin_region...
+   Profiling group_size...
+   Profiling daily_spending...
+   Profiling days_staying...
+   Profiling primary_activity...
+   Profiling is_returning_visitor...
+   Profiling arrival_date...
+   Profiling departure_date...
+   Profiling booking_source...
+   Profiling accommodation_type...
+   Profiling ticket_type...
+   Profiling total_spending...
+   Profiling group_total_spending...
+   Profiling created_at...
+
+📄 Profile saved: reports/data_profile.json
+
+================================================================================
+📊 DATA PROFILE SUMMARY
+================================================================================
+
+Total Records: 100,000
+Total Columns: 22
+
+  visitor_id:
+    Type: str
+    Missing: 0 (0.0%)
+    Unique: 100000
+
+  first_name:
+    Type: str
+    Missing: 0 (0.0%)
+    Unique: 21
+
+  last_name:
+    Type: str
+    Missing: 0 (0.0%)
+    Unique: 18
+
+  email:
+    Type: str
+    Missing: 0 (0.0%)
+    Unique: 99999
+
+  phone:
+    Type: str
+    Missing: 0 (0.0%)
+    Unique: 100000
+
+  age:
+    Type: int64
+    Missing: 0 (0.0%)
+    Range: 18.0 to 75.0
+    Mean: 38.32, Std: 14.34
+
+  gender:
+    Type: str
+    Missing: 0 (0.0%)
+    Unique: 4
+
+  country:
+    Type: str
+    Missing: 0 (0.0%)
+    Unique: 15
+
+  origin_region:
+    Type: str
+    Missing: 0 (0.0%)
+    Unique: 5
+
+  group_size:
+    Type: int64
+    Missing: 0 (0.0%)
+    Range: 1.0 to 6.0
+    Mean: 2.73, Std: 1.25
+
+  daily_spending:
+    Type: float64
+    Missing: 0 (0.0%)
+    Range: 50.0 to 400.0
+    Mean: 170.64, Std: 84.83
+
+  days_staying:
+    Type: int64
+    Missing: 0 (0.0%)
+    Range: 1.0 to 7.0
+    Mean: 6.25, Std: 1.45
+
+  primary_activity:
+    Type: str
+    Missing: 0 (0.0%)
+    Unique: 6
+
+  is_returning_visitor:
+    Type: bool
+    Missing: 0 (0.0%)
+    Unique: 2
+
+  arrival_date:
+    Type: str
+    Missing: 0 (0.0%)
+    Unique: 50999
+
+  departure_date:
+    Type: str
+    Missing: 0 (0.0%)
+    Unique: 51957
+
+  booking_source:
+    Type: str
+    Missing: 0 (0.0%)
+    Unique: 4
+
+  accommodation_type:
+    Type: str
+    Missing: 0 (0.0%)
+    Unique: 5
+
+  ticket_type:
+    Type: str
+    Missing: 0 (0.0%)
+    Unique: 4
+
+  total_spending:
+    Type: float64
+    Missing: 0 (0.0%)
+    Range: 50.0 to 2800.0
+    Mean: 1066.50, Std: 598.33
+
+  group_total_spending:
+    Type: float64
+    Missing: 0 (0.0%)
+    Range: 50.0 to 16800.0
+    Mean: 2902.57, Std: 2220.65
+
+  created_at:
+    Type: str
+    Missing: 0 (0.0%)
+    Unique: 100000
+
+--------------------------------------------------------------------------------
+
+================================================================================
+🔎 STARTING ANOMALY DETECTION
+================================================================================
+
+🔍 Detecting high spenders...
+
+🔍 Detecting long stays...
+
+🔍 Detecting data quality issues...
+   Found 0 quality issues
+
+📄 Report saved: reports/anomaly_detection.json
+
+================================================================================
+🔎 ANOMALY DETECTION SUMMARY
+================================================================================
+
+high_spenders:
+
+long_stays:
+
+data_quality:
+  issues: {}
+  total: 0
+
+--------------------------------------------------------------------------------
+📋 Generating consolidated validation report...
+
+✅ Consolidated report saved: reports/stage2_validation_report.json
+
+================================================================================
+✅ STAGE 2 COMPLETE!
+================================================================================
+
+Generated Reports:
+  ✓ reports/data_quality_validation.json
+  ✓ reports/data_profile.json
+  ✓ reports/anomaly_detection.json
+  ✓ reports/stage2_validation_report.json
+
+Cleaned Data:
+  ✓ data/processed/synthetic_visitors_clean.csv
+  ✓ data/processed/synthetic_visitors_validated.parquet
+
+Next Steps:
+  1. Review validation reports in 'reports/' directory
+  2. Fix any data quality issues if needed
+  3. Proceed to Stage 3: Data Transformation (dbt)
